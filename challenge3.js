@@ -60,7 +60,7 @@ function calculateNetSalary(basicSalary, benefits) {
     // Apply personal relief (monthly)
     payeTax = Math.max(0, payeTax - PAYE.personalRelief);
   
-    // Calculate NHIF deduction
+    
     let nhifDeduction = 0;
     for (let i = 0; i < NHIF.length; i++) {
       if (grossSalary >= NHIF[i].min && grossSalary <= NHIF[i].max) {
@@ -69,24 +69,23 @@ function calculateNetSalary(basicSalary, benefits) {
       }
     }
   
-    // Calculate NSSF deduction (Tier I and Tier II)
+    
     const nssfTier1 = Math.min(grossSalary, NSSF.tier1Limit) * NSSF.tier1Rate;
     const nssfTier2 = Math.max(0, grossSalary - NSSF.tier1Limit) * NSSF.tier2Rate;
     const nssfDeduction = nssfTier1 + nssfTier2;
   
-    // Calculate SHIF deduction
+    
     const shifDeduction = grossSalary * SHIFRate;
   
-    // Calculate Housing Levy deduction
+    
     const housingLevy = grossSalary * HousingLevyRate;
   
-    // Calculate total deductions
+    
     const totalDeductions = payeTax + nhifDeduction + nssfDeduction + shifDeduction + housingLevy;
   
-    // Calculate net salary
+
     const netSalary = grossSalary - totalDeductions;
   
-    // Return the salary breakdown
     return {
       grossSalary: grossSalary,
       payeTax: payeTax,
@@ -99,7 +98,6 @@ function calculateNetSalary(basicSalary, benefits) {
     };
   }
   
-  // Example usage
   const salaryDetails = calculateNetSalary(50000, 10000);
   console.log(salaryDetails);
   

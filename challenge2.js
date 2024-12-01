@@ -12,8 +12,8 @@ function checkSpeed(speed) {
     }
   }
   
-  console.log(checkSpeed(80));  // Outputs: Points: 2
-  console.log(checkSpeed(100)); // Outputs: Points: 6
-  console.log(checkSpeed(120)); // Outputs: License suspended
-  console.log(checkSpeed(60));  // Outputs: Ok
+  console.log(checkSpeed(80));  
+  console.log(checkSpeed(100)); 
+  console.log(checkSpeed(120)); 
+  console.log(checkSpeed(60));  
   
